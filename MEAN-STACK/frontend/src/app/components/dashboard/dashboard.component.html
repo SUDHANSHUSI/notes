@@ -1,0 +1,21 @@
+<nav class="navbar">
+    <div class="navbar-brand">My Blog</div>
+    <div class="navbar-create-post">Create Post</div>
+  </nav>
+  <br>
+  <br>
+  <!-- <div class="container"> -->
+    <div class="row mt-5 p-3">
+      <div class="col-md-4 col-sm-12"  *ngFor = "let post of allPosts">
+        <div class="card" style="width:18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{post.username}}</h6>
+            <p class="card-text">{{post.content}}</p>
+          </div>
+          <div class="card-footer">
+           <div class="btn btn-outline-primary"(click)="editPost(post)">Edit</div>
+             <div class="btn btn-outline-danger" (click)="deletePostData(post)">Delete</div>
+          </div>
+        </div>
+      </div>
