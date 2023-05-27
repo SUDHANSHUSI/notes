@@ -1,0 +1,80 @@
+<mat-card>
+    <mat-card-header>
+        <h1 style="font-weight: bold">Request to add Doctor</h1>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form" [formGroup]="doctorForm" (ngSubmit)="onSubmit()">
+            <!-- Name -->
+            <mat-form-field appearance="fill">
+                <mat-label>Full Name</mat-label>
+                <input matInput placeholder="Mahendra Dhoni" formControlName="name" />
+                <mat-error *ngIf="
+            !doctorForm.get('name').valid && doctorForm.get('name').touched
+          ">Please enter name</mat-error>
+            </mat-form-field>
+
+            <!-- Email -->
+            <div class="example-container">
+                <mat-form-field>
+                    <mat-label>Enter your email</mat-label>
+                    <input matInput placeholder="pat@example.com" formControlName="email" />
+                    <mat-error *ngIf="doctorForm.get('email').invalid">Please enter valid email..</mat-error>
+                </mat-form-field>
+            </div>
+
+            <!-- Phone -->
+            <mat-form-field class="mat-50">
+                <mat-label>Phone</mat-label>
+                <input type="number" matInput maxlength="10" matInput formControlName="phone" />
+                <mat-error *ngIf="doctorForm.get('experience').invalid">Enter Only Digit..</mat-error>
+            </mat-form-field>
+
+            <!-- Age -->
+            <mat-form-field class="mat-50">
+                <mat-label>Age</mat-label>
+                <input type="number" matInput formControlName="age" />
+                <mat-error *ngIf="doctorForm.get('age').invalid">Please enter valid age..</mat-error>
+            </mat-form-field>
+
+            <!-- experience -->
+            <mat-form-field class="mat-50">
+                <mat-label>Doctor Experience</mat-label>
+                <input type="number" matInput formControlName="experience" />
+                <mat-error *ngIf="doctorForm.get('experience').invalid">Please enter experience..</mat-error>
+            </mat-form-field>
+
+            <!-- Departments -->
+            <mat-form-field class="mat-50" [hidden]="isUpdate">
+                <mat-label>Department</mat-label>
+                <mat-select formControlName="department">
+                    <mat-option *ngFor="let item of department" [value]="item._id">
+                        {{ item.departmentName }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- Gender -->
+            <div>
+                <mat-radio-group formControlName="gender" color="primary" aria-label="Select an option">
+                    <!-- <mat-label>Gender</mat-label> -->
+                    <mat-radio-button value="male">Male</mat-radio-button>
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                    <mat-radio-button value="other">Other</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <!-- IsActive -->
+            <mat-checkbox [hidden]="true" class="mat-50" formControlName="isActive">isActive!</mat-checkbox>
+
+            <!-- Button -->
+            <div>
+                <button class="mat-50" mat-raised-button color="primary" type="submit">
+                    Submit
+                </button>
+                <button class="mat-50" mat-raised-button color="warn" mat-dialog-close="true">
+                    close
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

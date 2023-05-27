@@ -1,0 +1,28 @@
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+      <h1 class="logo me-auto"><a href="#">LAPIT4H</a></h1>
+     
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto " routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" [routerLink]="''">Home</a></li>
+          <li><a class="nav-link scrollto"  routerLinkActive="active"  [routerLink]="'about'">About</a></li>
+          <li><a class="nav-link scrollto" routerLinkActive="active" [routerLink]="'service'">Services</a></li>
+          <li><a class="nav-link scrollto" routerLinkActive="active" [routerLink]="'department'">Departments</a></li>
+          <li><a class="nav-link scrollto" routerLinkActive="active" [routerLink]="'doctor'">Doctors</a></li>
+          <li><a class="nav-link scrollto" routerLinkActive="active" [routerLink]="'contact'">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      <a [routerLink]="'appointment'"  routerLinkActive="active"  class="appointment-btn scrollto">Make an Appointment</a>
+      <a [routerLink]="'login'" [hidden]="islogin()" routerLinkActive="active"  class="appointment-btn scrollto">Login</a>
+      <!-- <button class="appointment-btn" mat-mini-fab matTooltip="Primary" color="primary" aria-label="Example mini fab with a heart icon">
+        <mat-icon>logout</mat-icon>
+        
+      </button> -->
+      <button class="appointment-btn" mat-mini-fab matTooltip="Primary" color="primary" aria-label="Example mini fab with a heart icon" (click)="userProfile()">
+        <mat-icon >account_circle</mat-icon>
+        
+      </button>
+      
+    </div>
+  </header>

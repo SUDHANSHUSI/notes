@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Install Angular</h2>
+<form [formGroup]="departmentForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content>
+
+        <mat-form-field appearance="fill">
+            <mat-label>DepartmentName</mat-label>
+            <input placeholder="Department Name." matInput formControlName="departmentName">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Sort Description</mat-label>
+            <input placeholder="Sort Title.." matInput formControlName="shortDesc">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field>
+            <mat-label>Long Descrption</mat-label>
+            <textarea matInput placeholder="Ex. Cardiology department include.." formControlName="LongDesc"></textarea>
+          </mat-form-field>
+          <br>
+          <div>
+              <button type="submit" mat-raised-button color="accent" style="margin-right: 10px;">submit</button>
+              <button mat-raised-button color="warn" mat-dialog-close="true">close</button>
+          </div>
+         
+    </mat-dialog-content>
+</form>

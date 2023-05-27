@@ -1,0 +1,21 @@
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+/* td, th {
+  width: 25%;
+} */
+.container{
+  border: 2px solid rgb(222, 211, 211);
+  padding-bottom: 10px;
+  border-radius: 5px;
+  min-height: 70vh;
+  margin: auto;
+  min-width: 87vw;
+  margin-top: 10px;
+}

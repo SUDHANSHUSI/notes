@@ -1,0 +1,29 @@
+mat-form-field {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  width: 98%;
+  margin: 1%;
+}
+
+.mat-50 {
+  width: 48%;
+  margin: 1%;
+}
+
+button {
+  margin: 2px;
+}
+
+@media screen and (max-width: 800px) {
+  form {
+    display: block;
+  }
+  .mat-50 {
+    width: 98%;
+    margin: 1%;
+  }
+}
+
+

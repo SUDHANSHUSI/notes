@@ -1,0 +1,211 @@
+<section id="appointment" class="appointment section-bg">
+  <div class="container">
+    <div class="section-title">
+      <h2>Make an Appointment</h2>
+    </div>
+    <div class="banner3">
+      <div class="py-5 banner" style="
+          background-image: url(https://therichpost.com/wp-content/uploads/2023/01/banner-bg-book.jpg);
+        ">
+        <div class="container">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-9 col-lg-6">
+                <h3 class="my-3 text-white font-weight-medium text-uppercase">
+                  Book Appointment
+                </h3>
+                <div class="bg-white">
+                  <!-- ///////////////////////////////////////////////////////////////////// -->
+                  <div class="form-row border-bottom">
+                    <!-- FirstName -->
+                    <div class="p-4 left border-right w-50">
+                      <label class="text-inverse font-12 text-uppercase">Patient first Name<span
+                          class="text-danger">*</span></label>
+                      <input type="text" class="border-0 p-0 font-14 form-control" placeholder="First Name"
+                        formControlName="fName" />
+
+                      <small *ngIf=" f.fName.touched && f.fName.errors?.required  && f.fName.invalid">
+                        First name is required.
+                      </small>
+
+                    </div>
+
+                    <!-- LastName -->
+
+                    <div class="p-4 right w-50">
+                      <label class="text-inverse font-12 text-uppercase">Patient last Name<span
+                          class="text-danger">*</span></label>
+                      <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Last Name"
+                        formControlName="lName" />
+                        <small *ngIf="f.lName.touched && f.lName.errors?.required && f.lName.invalid">
+                          LastName is required.
+                        </small>
+                    </div>
+                  </div>
+                  <!-- /////////////////////////////////////////////////////////////////////// -->
+                  <div class="form-row border-bottom">
+                    <!-- Gender -->
+                    <div class="p-4 left border-right w-50">
+                      <label class="text-inverse font-12 text-uppercase">Gender<span
+                          class="text-danger">*</span></label>
+
+                      <div>
+                        <input class="form-check-input" type="radio" name="gender" value="male"
+                          formControlName="gender" />
+                        Male
+
+                        <input class="form-check-input" type="radio" name="gender" value="female"
+                          formControlName="gender" />Female
+
+                        <input class="form-check-input" type="radio" name="gender" value="other"
+                          formControlName="gender" />Other
+                      </div>
+                    </div>
+
+                    <!-- Phone Number -->
+
+                    <div class="p-4 right w-50">
+                      <label class="text-inverse font-12 text-uppercase">Patient contact number<span
+                          class="text-danger">*</span></label>
+                      <input type="text" class="border-0 p-0 font-14 form-control" placeholder="Enter contact Number"
+                        formControlName="phone" maxlength="10" />
+                        <small *ngIf="f.phone.touched && f.phone.errors?.required && f.phone.invalid">
+                          Contact Number is required.
+                        </small>
+                    </div>
+                  </div>
+                  <!-- ///////////////////////////////////////////////////////////////// -->
+                  <div class="form-row border-bottom">
+
+                    <!-- Blood Group -->
+
+
+                    <div class="p-4 left border-right w-50">
+                      <label class="text-inverse font-12 text-uppercase">Blood Group<span
+                          class="text-danger">*</span></label>
+                      <select class="border-1 p-0 font-14 form-control" aria-label="Default select example"
+                        formControlName="bloodGroup">
+                        <!-- <option selected value="aa">
+                          Open this select menu
+                        </option> -->
+                        <option *ngFor="let blood of bloodGroupType; let i = index" value="{{ blood }}">
+                          {{ blood }}
+                        </option>
+                      </select>
+                    </div>
+
+
+
+                    <!-- Age -->
+
+
+                    <div class="p-4 right w-50">
+                      <label class="text-inverse font-12 text-uppercase">Patient Age<span
+                          class="text-danger">*</span></label>
+                      <input type="number" class="border-0 p-0 font-14 form-control" placeholder="Enter Age Here"
+                        formControlName="age" />
+                        <small *ngIf="f.age.touched && f.age.errors?.required && f.age.invalid">
+                         Age is required.
+                        </small>
+                    </div>
+                  </div>
+                  <!-- //////////////////////////////////////////////////////////////////////// -->
+
+
+                  <!-- Department -->
+
+
+                  <div class="p-4 left border-right">
+                    <label class="text-inverse font-12 text-uppercase">Select Department<span
+                        class="text-danger">*</span></label>
+                    <select class="border-1 p-1 font-14 form-control" aria-label="Default select example"
+                      formControlName="department" (change)="getValue($event)" >
+                     
+                      <option *ngFor="let depart of getDepartment; let i = index" value="{{ depart.id}}">
+                        {{ depart.name }}
+                      </option>
+                    </select>
+                    <small *ngIf="f.department.touched && f.department.errors?.required && f.department.invalid">
+                      Age is required.
+                     </small>
+                  </div>
+                  <hr />
+
+                  <!-- ///////////////////////////////////////////////////////////////////// -->
+
+                  <!-- Doctor -->
+
+
+                  <div class="p-4 left border-right">
+                    <label class="text-inverse font-12 text-uppercase">Select Doctor<span
+                        class="text-danger">*</span></label>
+                    <select class="border-1 p-1 font-14 form-control" aria-label="Default select example"
+                      formControlName="doctorName">
+
+                      <option *ngFor="let doctorName of getDoctorForDepartment" value="{{ doctorName }}">
+                        Dr.{{ doctorName }}
+                      </option>
+                    </select>
+                    <small *ngIf="f.doctorName.touched && f.doctorName.errors?.required && f.doctorName.invalid">
+                      Please select Doctor to meet..
+                     </small>
+                  </div>
+                  <hr />
+                  <!-- ////////////////////////////////////////////////////////////////// -->
+
+                  <div class="form-row border-bottom">
+
+
+                    <!-- Appointment Date -->
+
+
+                    <div class="p-4 left border-right w-50">
+                      <label class="text-inverse font-12 text-uppercase">Appointment Date<span
+                          class="text-danger">*</span></label>
+                      <div class="input-group date">
+                        <input type="date" [min]="minDate" class="border-0 p-0 font-14 form-control" id="dp"
+                          placeholder="Select the Appointment Date" formControlName="date" />
+                          <small *ngIf="f.date.touched && f.date.errors?.required && f.date.invalid">
+                            Please select date..
+                           </small>
+                      </div>
+                    </div>
+
+                    <!-- Appointment type  -->
+
+                    <div class="p-4 right w-50">
+                      <label class="text-inverse font-12 text-uppercase">Appointment Type<span
+                          class="text-danger">*</span></label>
+                      <select class="border-1 p-1 font-14 form-control" aria-label="Default select example"
+                        formControlName="appointmentType">
+                        
+                        <option *ngFor="
+                            let appointment of appointmentType;
+                            let i = index
+                          " value="{{ appointment }}">
+                          {{ appointment }}
+                        </option>
+                      </select>
+                      <small *ngIf="f.appointmentType.touched && f.appointmentType.errors?.required && f.appointmentType.invalid">
+                        Please select appointment type..
+                       </small>
+                    </div>
+                  </div>
+                  <!-- ///////////////////////////////////////////////////////////////// -->
+                  <!-- Submit button -->
+                  <div>
+                    <button type="submit"
+                      class="w-100 m-0 border-0 py-4 font-14 font-weight-medium btn btn-danger-gradiant btn-block position-relative rounded-0 text-center text-white text-uppercase">
+                      <span>Book Your Appointment Now</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</section>

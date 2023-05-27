@@ -1,0 +1,8 @@
+/* .container{
+    max-width: 100vw;
+} */
+    .doctor-list{
+        max-width: 60%;
+        border: 2px solid red;
+        margin-top: 10px;
+    }

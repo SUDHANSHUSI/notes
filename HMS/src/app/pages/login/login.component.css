@@ -1,0 +1,36 @@
+.mat-50 {
+    width: 100%;
+    margin: 1%;
+  }
+  mat-card {
+    display: flex;
+    margin: auto;
+    margin-top:15%;
+    /* position: absolute;
+    top: 8%;
+    left: 20%; */
+    text-align: center;
+    width: 50%;
+    /* margin-top: 5%; */
+  }
+
+  mat-card-header  {
+    display: flex;
+    text-align: center;
+    margin: auto;
+  } 
+  h1{
+    font-size: large;
+  }
+  .mat-mdc-card-title{
+    font-size: xx-large;
+  }
+  a:hover {
+    background-color: #1976d2;
+    color: #fff;
+  }
+
+  /* .mat-mdc-card{
+    bottom: 40%;
+  } */
+ 

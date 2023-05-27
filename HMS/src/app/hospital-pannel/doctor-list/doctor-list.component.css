@@ -1,0 +1,35 @@
+/* Structure */
+table {
+    width: 100%;
+  }
+  
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-mdc-form-field{
+    width: 50%;
+    /* margin-right: 55%; */
+  }
+
+.header2{
+  display: flex;
+  /* flex-direction: row; */
+  gap: 5%;
+}
+.mdc-button{
+  width: 50%;
+  height: 7.5vh;
+  margin-right: 10px;
+}
+
+.container{
+  border: 2px solid rgb(222, 211, 211);
+  margin: 10px 0px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 10px;
+}
+
