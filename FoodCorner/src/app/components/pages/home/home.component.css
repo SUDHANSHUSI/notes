@@ -42,9 +42,22 @@ li a img {
   position: absolute;
   color: gray;
 }
-.favorite:not(.not){
+/* .favorite:not(.not){
   color: red;
+} */
+.favorite::before {
+  content: "❤️";
+  color: gray; /* Default color for hearts */
 }
+
+.favorite.not::before {
+  color: gray; /* Color for non-favorite hearts */
+}
+
+.favorite:not(.not)::before {
+  color: red; /* Color for favorite hearts */
+}
+
 .stars {
   margin-bottom: 0.5rem;
 }

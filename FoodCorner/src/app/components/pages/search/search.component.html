@@ -1,0 +1,9 @@
+<div>
+  <input
+    type="text"
+    placeholder="       Search food in food corner"
+    (keyup.enter)="onSearch($event)"
+    [value]="searchTerm"
+  />
+  <button (click)="onSearch($event)">Search</button>
+</div>
